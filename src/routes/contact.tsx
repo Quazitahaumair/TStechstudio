@@ -132,7 +132,7 @@ function ContactPage() {
                 </span>
                 <span>
                   <span className="block text-muted-foreground">Working worldwide</span>
-                  Remote-first studio
+                  Kinwat Dist. Nanded , Maharashtra .
                 </span>
               </li>
             </ul>

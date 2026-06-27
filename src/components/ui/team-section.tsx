@@ -190,9 +190,20 @@ function MemberCard({ member, index }: { member: any; index: number }) {
         ) : member.textures ? (
           <Suspense
             fallback={
-              <div className="w-[300px] h-[450px] bg-slate-800/10 backdrop-blur-md border border-slate-700/20 rounded-2xl flex flex-col justify-center items-center gap-4 animate-pulse">
-                <Layers className="w-12 h-12 text-slate-400/50 animate-bounce" />
-                <span className="text-sm font-medium text-slate-500">Loading 3D Scene...</span>
+              <div className="w-[300px] h-[450px] rounded-2xl overflow-hidden relative shadow-lg border border-slate-200/50 bg-[#cbd5e1] p-6 flex flex-col justify-between items-center text-center animate-pulse">
+                <img src="/avatar.png" alt={member.name} className="w-full h-full object-cover" />
+                <div className="absolute inset-x-0 bottom-0 bg-gradient-to-t from-black/80 via-black/40 to-transparent p-6 pt-20 text-center">
+                  <h4 className="text-xl font-bold text-white tracking-wide uppercase">
+                    {member.name}
+                  </h4>
+                  <p className="text-xs text-[#2DD4BF] font-semibold tracking-wider mt-1">
+                    {member.role}
+                  </p>
+                </div>
+                <div
+                  className="absolute top-0 left-0 right-0 h-1.5"
+                  style={{ backgroundColor: member.color === "indigo" ? "#4f46e5" : "#059669" }}
+                />
               </div>
             }
           >
@@ -206,9 +217,20 @@ function MemberCard({ member, index }: { member: any; index: number }) {
             />
           </Suspense>
         ) : (
-          <div className="w-[300px] h-[450px] bg-slate-800/10 backdrop-blur-md border border-slate-700/20 rounded-2xl flex flex-col justify-center items-center gap-4 animate-pulse">
-            <Layers className="w-12 h-12 text-slate-400/50 animate-bounce" />
-            <span className="text-sm font-medium text-slate-500">Loading 3D Badge...</span>
+          <div className="w-[300px] h-[450px] rounded-2xl overflow-hidden relative shadow-lg border border-slate-200/50 bg-[#cbd5e1] p-6 flex flex-col justify-between items-center text-center animate-pulse">
+            <img src="/avatar.png" alt={member.name} className="w-full h-full object-cover" />
+            <div className="absolute inset-x-0 bottom-0 bg-gradient-to-t from-black/80 via-black/40 to-transparent p-6 pt-20 text-center">
+              <h4 className="text-xl font-bold text-white tracking-wide uppercase">
+                {member.name}
+              </h4>
+              <p className="text-xs text-[#2DD4BF] font-semibold tracking-wider mt-1">
+                {member.role}
+              </p>
+            </div>
+            <div
+              className="absolute top-0 left-0 right-0 h-1.5"
+              style={{ backgroundColor: member.color === "indigo" ? "#4f46e5" : "#059669" }}
+            />
           </div>
         )}
       </motion.div>
@@ -234,7 +256,7 @@ function MemberCard({ member, index }: { member: any; index: number }) {
           <span className={`p-1.5 rounded-lg ${member.accentBg} mb-1 shadow-sm`}>
             {member.icon}
           </span>
-          <h3 className="text-2xl font-bold text-slate-800 tracking-tight leading-tight">
+          <h3 className="text-2xl sm:text-3xl font-extrabold text-slate-900 tracking-tight leading-tight">
             {member.name}
           </h3>
           <p className="text-sm font-semibold text-[#0D9488]">{member.role}</p>
@@ -326,6 +348,7 @@ export default function TeamSection() {
 
   const members = [
     {
+      name: "Quazi Taha",
       role: "Full Stack Developer",
       desc: "Full Stack developer with 2+ years of Industry experience, building robust architectures and responsive interfaces.",
       skills: [
@@ -344,6 +367,7 @@ export default function TeamSection() {
       accentGlow: "shadow-[0_0_20px_rgba(16,185,129,0.15)]",
     },
     {
+      name: "Shaikh Sharikh",
       role: "Software Tester",
       desc: "Software Tester with 2+ years of industry experience, ensuring application quality, performance, and bulletproof automation.",
       skills: [

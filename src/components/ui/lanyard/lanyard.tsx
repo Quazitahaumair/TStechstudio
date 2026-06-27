@@ -20,6 +20,10 @@ import * as THREE from "three";
 
 extend({ MeshLineGeometry, MeshLineMaterial });
 
+// Preload assets for immediate rendering
+useGLTF.preload(cardGLB);
+useTexture.preload(lanyardPng);
+
 // 1x1 transparent pixel — lets useTexture be called unconditionally when a
 // front/back image isn't supplied.
 const BLANK_PIXEL =
@@ -172,12 +176,10 @@ function Band({
     const baseMap = materials.base.map;
     if (!frontImage && !backImage) return baseMap;
 
-    const baseImg = baseMap.image;
-    // Optimize resolution for high performance while keeping good text clarity
-    const maxDimension = 1024;
-    const scaleFactor = maxDimension / Math.max(baseImg.width, baseImg.height);
-    const W = Math.round(baseImg.width * scaleFactor);
-    const H = Math.round(baseImg.height * scaleFactor);
+    // Use a fixed high-resolution canvas size (1024x1024) to ensure the card textures
+    // are ultra-sharp and do not depend on whether the base texture has finished loading.
+    const W = 1024;
+    const H = 1024;
 
     const canvas = document.createElement("canvas");
     canvas.width = W;
