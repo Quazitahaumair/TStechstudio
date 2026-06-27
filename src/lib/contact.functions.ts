@@ -34,6 +34,7 @@ function checkRateLimit(ip: string): { allowed: boolean; waitSec?: number } {
 export const contactSchema = z.object({
   name: z.string().trim().min(2, "Please enter your name").max(100),
   email: z.string().trim().email("Enter a valid email").max(255),
+  phone: z.string().trim().min(10, "Please enter a valid 10-digit phone number").max(25),
   company: z.string().trim().max(120).optional().or(z.literal("")),
   service: z.string().trim().max(80).optional().or(z.literal("")),
   message: z.string().trim().min(10, "Tell us a bit more (10+ characters)").max(2000),
@@ -82,6 +83,7 @@ export const submitContact = createServerFn({ method: "POST" })
       <h2>New enquiry — TS Tech Studio</h2>
       <p><strong>Name:</strong> ${escapeHtml(data.name)}</p>
       <p><strong>Email:</strong> ${escapeHtml(data.email)}</p>
+      <p><strong>Phone:</strong> ${escapeHtml(data.phone)}</p>
       <p><strong>Company:</strong> ${escapeHtml(data.company || "—")}</p>
       <p><strong>Service:</strong> ${escapeHtml(data.service || "—")}</p>
       <p><strong>Message:</strong></p>

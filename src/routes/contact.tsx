@@ -28,6 +28,7 @@ export const Route = createFileRoute("/contact")({
 type FormState = {
   name: string;
   email: string;
+  phone: string;
   company: string;
   service: string;
   message: string;
@@ -36,6 +37,7 @@ type FormState = {
 const empty: FormState = {
   name: "",
   email: "",
+  phone: "",
   company: "",
   service: "",
   message: "",
@@ -49,8 +51,8 @@ function ContactPage() {
 
   const update =
     (key: keyof FormState) =>
-    (e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement | HTMLSelectElement>) =>
-      setForm((f) => ({ ...f, [key]: e.target.value }));
+      (e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement | HTMLSelectElement>) =>
+        setForm((f) => ({ ...f, [key]: e.target.value }));
 
   const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
@@ -134,9 +136,14 @@ function ContactPage() {
                 </span>
                 <span>
                   <span className="block text-muted-foreground">Phone / WhatsApp</span>
-                  <a href="tel:+918080080800" className="hover:text-brand transition-colors">
-                    +91 80800 80800
-                  </a>
+                  <div className="flex flex-col gap-1">
+                    <a href="tel:+917875992292" className="hover:text-brand transition-colors">
+                      +91 7875992292
+                    </a>
+                    <a href="tel:+919623710631" className="hover:text-brand transition-colors">
+                      +91 9623710631
+                    </a>
+                  </div>
                 </span>
               </li>
               <li className="flex items-center gap-3">
@@ -183,6 +190,16 @@ function ContactPage() {
                 placeholder="Taha@company.com"
               />
               {errors.email && <p className="mt-1 text-xs text-destructive">{errors.email}</p>}
+            </div>
+            <div>
+              <label className="mb-1.5 block text-sm font-medium">Phone Number</label>
+              <input
+                className={field}
+                value={form.phone}
+                onChange={update("phone")}
+                placeholder="+91 99999 99999"
+              />
+              {errors.phone && <p className="mt-1 text-xs text-destructive">{errors.phone}</p>}
             </div>
             <div>
               <label className="mb-1.5 block text-sm font-medium">
