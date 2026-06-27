@@ -2,16 +2,7 @@
 
 import { motion } from "framer-motion";
 import { Link } from "@tanstack/react-router";
-import {
-  ArrowRight,
-  Check,
-  Cpu,
-  Database,
-  Globe,
-  Layers,
-  Lock,
-  Zap,
-} from "lucide-react";
+import { ArrowRight, Check, Cpu, Database, Globe, Layers, Lock, Zap } from "lucide-react";
 import { HeroParallax } from "@/components/ui/hero-parallax";
 
 export const products = [
@@ -165,11 +156,7 @@ export function CustomWebApplicationsPage({ service }: { service: any }) {
       <section className="relative z-10 w-full">
         {/* Ambient top glow */}
         <div className="absolute top-0 left-1/2 -translate-x-1/2 w-full max-w-7xl h-[500px] bg-gradient-to-b from-blue-500/10 via-transparent to-transparent blur-[120px] pointer-events-none" />
-        <HeroParallax
-          products={products}
-          title={service.title}
-          description={service.description}
-        />
+        <HeroParallax products={products} title={service.title} description={service.description} />
       </section>
 
       {/* Details & Features Grid Section */}
@@ -183,7 +170,8 @@ export function CustomWebApplicationsPage({ service }: { service: any }) {
               Tailored to your workflow.
             </h2>
             <p className="text-xl text-slate-400 font-light leading-relaxed">
-              We specialize in engineering robust custom solutions that address complex business requirements.
+              We specialize in engineering robust custom solutions that address complex business
+              requirements.
             </p>
           </motion.div>
 
@@ -201,18 +189,16 @@ export function CustomWebApplicationsPage({ service }: { service: any }) {
                 >
                   {/* Subtle hover gradient */}
                   <div className="absolute inset-0 bg-gradient-to-br from-blue-500/5 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300" />
-                  
+
                   <div className="flex items-start gap-6">
-                    <div className={`rounded-2xl p-4 bg-slate-900 border border-slate-800 shadow-md text-white`}>
+                    <div
+                      className={`rounded-2xl p-4 bg-slate-900 border border-slate-800 shadow-md text-white`}
+                    >
                       <Icon className="size-8 text-blue-400 group-hover:scale-110 transition-transform duration-300" />
                     </div>
                     <div>
-                      <h3 className="text-2xl font-semibold text-white mb-3">
-                        {feature.title}
-                      </h3>
-                      <p className="text-slate-400 leading-relaxed">
-                        {feature.description}
-                      </p>
+                      <h3 className="text-2xl font-semibold text-white mb-3">{feature.title}</h3>
+                      <p className="text-slate-400 leading-relaxed">{feature.description}</p>
                     </div>
                   </div>
                 </motion.div>
@@ -233,7 +219,8 @@ export function CustomWebApplicationsPage({ service }: { service: any }) {
               Engineered for absolute performance
             </h2>
             <p className="text-lg text-slate-400 mb-8 leading-relaxed">
-              We design software architectures that handle heavy loads, dynamic traffic spikes, and strict data security mandates with ease.
+              We design software architectures that handle heavy loads, dynamic traffic spikes, and
+              strict data security mandates with ease.
             </p>
 
             <ul className="space-y-4">
@@ -262,21 +249,26 @@ export function CustomWebApplicationsPage({ service }: { service: any }) {
             className="relative rounded-3xl border border-slate-800 bg-slate-950 p-8 shadow-2xl overflow-hidden"
           >
             <div className="absolute inset-0 bg-gradient-to-br from-blue-500/5 to-transparent" />
-            
+
             <h3 className="text-lg font-semibold text-white mb-6 flex items-center gap-2">
               <span className="size-2 rounded-full bg-emerald-500 animate-pulse" />
               Developer Tools & Stack
             </h3>
-            
+
             <div className="space-y-6">
               {[
                 { name: "Frontend", tech: "React, Next.js / Vite, Tailwind CSS, Framer Motion" },
                 { name: "Backend APIs", tech: "Node.js, Express, Fastify, GraphQL, REST API" },
                 { name: "Database Systems", tech: "PostgreSQL, MongoDB, Redis Caching, Prisma" },
-                { name: "Infrastructure & Security", tech: "Docker, AWS, Vercel, OAuth / JWT, HTTPS" },
+                {
+                  name: "Infrastructure & Security",
+                  tech: "Docker, AWS, Vercel, OAuth / JWT, HTTPS",
+                },
               ].map((item, idx) => (
                 <div key={idx} className="border-b border-slate-800 pb-4 last:border-0 last:pb-0">
-                  <div className="text-xs text-blue-400 font-mono uppercase tracking-wider mb-1">{item.name}</div>
+                  <div className="text-xs text-blue-400 font-mono uppercase tracking-wider mb-1">
+                    {item.name}
+                  </div>
                   <div className="text-sm text-slate-300 font-medium">{item.tech}</div>
                 </div>
               ))}
@@ -288,14 +280,15 @@ export function CustomWebApplicationsPage({ service }: { service: any }) {
       {/* CTA Section */}
       <section className="relative py-32 px-6 md:px-12 lg:px-24 bg-[#030712] z-20 border-t border-slate-900">
         <div className="absolute inset-0 bg-gradient-to-t from-blue-950/20 via-transparent to-transparent pointer-events-none" />
-        
+
         <div className="max-w-4xl mx-auto text-center relative z-10">
           <motion.div {...fadeInUp}>
             <h2 className="text-4xl md:text-6xl font-bold tracking-tight text-white mb-8">
               Ready to construct your application?
             </h2>
             <p className="text-xl text-slate-400 mb-12 max-w-2xl mx-auto font-light leading-relaxed">
-              Partner with us to build custom web applications optimized for speed, scalability, and robust user experiences.
+              Partner with us to build custom web applications optimized for speed, scalability, and
+              robust user experiences.
             </p>
             <Link
               to="/contact"

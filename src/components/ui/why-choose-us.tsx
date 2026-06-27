@@ -122,8 +122,7 @@ export default function WhyChooseUs() {
       <div
         className="pointer-events-none absolute inset-0 opacity-[0.03]"
         style={{
-          backgroundImage:
-            "radial-gradient(circle, #0D9488 1px, transparent 1px)",
+          backgroundImage: "radial-gradient(circle, #0D9488 1px, transparent 1px)",
           backgroundSize: "44px 44px",
         }}
       />
@@ -142,21 +141,18 @@ export default function WhyChooseUs() {
 
           <h2 className="mt-5 text-4xl font-bold leading-tight text-[#111827] sm:text-5xl lg:text-6xl">
             Why Businesses Choose{" "}
-            <span className="bg-clip-text text-transparent bg-gradient-brand">
-              TS Tech Studio
-            </span>
+            <span className="bg-clip-text text-transparent bg-gradient-brand">TS Tech Studio</span>
           </h2>
 
           <p className="mx-auto mt-5 max-w-2xl text-base leading-8 text-[#6B7280] sm:text-lg">
-            We combine strategy, design, and engineering into a partner
-            experience that feels premium from first call to final launch.
+            We combine strategy, design, and engineering into a partner experience that feels
+            premium from first call to final launch.
           </p>
 
           <div
             className="mx-auto mt-8 h-px w-36"
             style={{
-              background:
-                "linear-gradient(90deg, transparent, #0D9488, transparent)",
+              background: "linear-gradient(90deg, transparent, #0D9488, transparent)",
             }}
           />
         </motion.div>
@@ -185,7 +181,9 @@ export default function WhyChooseUs() {
                   </div>
 
                   {/* Label */}
-                  <span className={`text-[10px] font-bold uppercase tracking-[0.2em] mb-3 ${feature.iconColor}`}>
+                  <span
+                    className={`text-[10px] font-bold uppercase tracking-[0.2em] mb-3 ${feature.iconColor}`}
+                  >
                     {feature.label}
                   </span>
 
@@ -195,17 +193,13 @@ export default function WhyChooseUs() {
                   </h3>
 
                   {/* Description */}
-                  <p className="text-sm leading-7 text-[#6B7280]">
-                    {feature.description}
-                  </p>
+                  <p className="text-sm leading-7 text-[#6B7280]">{feature.description}</p>
 
                   {/* Bottom accent line */}
                   <div
                     className="mt-6 h-px w-12 rounded-full opacity-50 mx-auto"
                     style={{
-                      background: feature.iconColor
-                        .replace("text-[", "")
-                        .replace("]", ""),
+                      background: feature.iconColor.replace("text-[", "").replace("]", ""),
                     }}
                   />
                 </SpotlightCard>

@@ -75,10 +75,7 @@ export const MenuBar = React.forwardRef<HTMLDivElement, MenuBarProps>(
     return (
       <motion.nav
         ref={ref as any}
-        className={cn(
-          "p-1 relative overflow-visible",
-          className
-        )}
+        className={cn("p-1 relative overflow-visible", className)}
         initial="initial"
         whileHover="hover"
         {...(props as any)}
@@ -121,7 +118,7 @@ export const MenuBar = React.forwardRef<HTMLDivElement, MenuBarProps>(
                             : "text-foreground font-semibold"
                           : isHeaderDark
                             ? "text-white/70 group-hover:text-white"
-                            : "text-muted-foreground group-hover:text-foreground"
+                            : "text-muted-foreground group-hover:text-foreground",
                       )}
                       variants={itemVariants}
                       transition={sharedTransition}
@@ -140,7 +137,7 @@ export const MenuBar = React.forwardRef<HTMLDivElement, MenuBarProps>(
                             : isHeaderDark
                               ? "text-white/70"
                               : "text-foreground",
-                          isHeaderDark ? "group-hover:text-white" : `group-hover:${item.iconColor}`
+                          isHeaderDark ? "group-hover:text-white" : `group-hover:${item.iconColor}`,
                         )}
                       >
                         <Icon className="h-5 w-5" />
@@ -156,7 +153,7 @@ export const MenuBar = React.forwardRef<HTMLDivElement, MenuBarProps>(
                             : "text-foreground font-semibold"
                           : isHeaderDark
                             ? "text-white/70 group-hover:text-white"
-                            : "text-muted-foreground group-hover:text-foreground"
+                            : "text-muted-foreground group-hover:text-foreground",
                       )}
                       variants={backVariants}
                       transition={sharedTransition}
@@ -176,7 +173,7 @@ export const MenuBar = React.forwardRef<HTMLDivElement, MenuBarProps>(
                             : isHeaderDark
                               ? "text-white/70"
                               : "text-foreground",
-                          isHeaderDark ? "group-hover:text-white" : `group-hover:${item.iconColor}`
+                          isHeaderDark ? "group-hover:text-white" : `group-hover:${item.iconColor}`,
                         )}
                       >
                         <Icon className="h-5 w-5" />
@@ -191,7 +188,7 @@ export const MenuBar = React.forwardRef<HTMLDivElement, MenuBarProps>(
         </ul>
       </motion.nav>
     );
-  }
+  },
 );
 
 MenuBar.displayName = "MenuBar";

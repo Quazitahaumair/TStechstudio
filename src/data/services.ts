@@ -1,9 +1,4 @@
-export type ServiceCategory =
-  | "Web"
-  | "Mobile"
-  | "Design"
-  | "Marketing"
-  | "Branding";
+export type ServiceCategory = "Web" | "Mobile" | "Design" | "Marketing" | "Branding";
 
 export interface Service {
   slug: string;
@@ -13,13 +8,7 @@ export interface Service {
   tagline: string;
   description: string;
   features: string[];
-  animation:
-    | "browser"
-    | "phone"
-    | "design"
-    | "rocket"
-    | "brand"
-    | "network";
+  animation: "browser" | "phone" | "design" | "rocket" | "brand" | "network";
 }
 
 export const SERVICE_CATEGORIES: ServiceCategory[] = [
@@ -108,12 +97,7 @@ export const services: Service[] = [
     tagline: "Identities that stand out.",
     description:
       "Memorable brand systems — from logo design to full corporate identity — that communicate trust and quality.",
-    features: [
-      "Logo Design",
-      "Brand Identity",
-      "Marketing Materials",
-      "Corporate Branding",
-    ],
+    features: ["Logo Design", "Brand Identity", "Marketing Materials", "Corporate Branding"],
     animation: "brand",
   },
   {
@@ -124,15 +108,9 @@ export const services: Service[] = [
     tagline: "Tailored software for your workflow.",
     description:
       "Scalable, secure web applications built around your unique business logic — dashboards, portals, and internal tools.",
-    features: [
-      "SaaS Platforms",
-      "Admin Dashboards",
-      "Client Portals",
-      "API Integrations",
-    ],
+    features: ["SaaS Platforms", "Admin Dashboards", "Client Portals", "API Integrations"],
     animation: "network",
   },
 ];
 
-export const getService = (slug: string) =>
-  services.find((s) => s.slug === slug);
+export const getService = (slug: string) => services.find((s) => s.slug === slug);

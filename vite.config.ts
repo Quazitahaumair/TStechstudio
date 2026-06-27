@@ -9,10 +9,7 @@ export default defineConfig({
   vite: {
     assetsInclude: ["**/*.glb"],
     server: {
-      allowedHosts: [
-        "spearmint-edginess-hyphen.ngrok-free.dev",
-        ".ngrok-free.dev",
-      ],
+      allowedHosts: ["spearmint-edginess-hyphen.ngrok-free.dev", ".ngrok-free.dev"],
     },
   },
   tanstackStart: {

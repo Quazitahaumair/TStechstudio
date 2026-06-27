@@ -1,8 +1,8 @@
-"use client" 
+"use client";
 
-import React, { Children, isValidElement, useEffect, useRef, useState } from 'react';
-import clsx from 'clsx';
-import { motion } from 'framer-motion';
+import React, { Children, isValidElement, useEffect, useRef, useState } from "react";
+import clsx from "clsx";
+import { motion } from "framer-motion";
 
 interface StickyTabItemProps {
   title: string;
@@ -13,7 +13,7 @@ interface StickyTabItemProps {
 const StickyTabItem: React.FC<StickyTabItemProps> = () => {
   return null;
 };
-StickyTabItem.displayName = 'StickyTabItem';
+StickyTabItem.displayName = "StickyTabItem";
 (StickyTabItem as any).isStickyTabItem = true;
 
 interface StickyTabsProps {
@@ -31,7 +31,7 @@ interface StickyTabsProps {
 
 const StickyTabs: React.FC<StickyTabsProps> & { Item: React.FC<StickyTabItemProps> } = ({
   children,
-  mainNavHeight = '6em',
+  mainNavHeight = "6em",
   rootClassName = "bg-black text-white",
   navSpacerClassName = "border-b border-white/15 bg-black",
   sectionClassName = "bg-[#131313]",
@@ -52,10 +52,13 @@ const StickyTabs: React.FC<StickyTabsProps> & { Item: React.FC<StickyTabItemProp
     const type = child.type as any;
     return (
       type === StickyTabItem ||
-      type?.displayName === 'StickyTabItem' ||
-      type?.name === 'StickyTabItem' ||
+      type?.displayName === "StickyTabItem" ||
+      type?.name === "StickyTabItem" ||
       type?.isStickyTabItem === true ||
-      (child.props && typeof child.props === 'object' && 'title' in child.props && 'id' in child.props)
+      (child.props &&
+        typeof child.props === "object" &&
+        "title" in child.props &&
+        "id" in child.props)
     );
   }) as React.ReactElement<StickyTabItemProps>[];
 
@@ -66,13 +69,13 @@ const StickyTabs: React.FC<StickyTabsProps> & { Item: React.FC<StickyTabItemProp
   // Keep containerHeight in sync dynamically with actual rendered height
   useEffect(() => {
     if (!stickyContainerRef.current) return;
-    
+
     const updateHeight = () => {
       if (stickyContainerRef.current) {
         setContainerHeight(stickyContainerRef.current.offsetHeight);
       }
     };
-    
+
     updateHeight();
     window.addEventListener("resize", updateHeight);
     return () => {
@@ -120,9 +123,9 @@ const StickyTabs: React.FC<StickyTabsProps> & { Item: React.FC<StickyTabItemProp
           // Determine the threshold for blank card based on scroll direction
           // If scrolling down, blank card triggers at scrollTravel * 6 (3300px).
           // If scrolling up, blank card is removed when we scroll up even 10-20% of the screen (e.g. 100px from bottom).
-          const blankCardThreshold = isScrollingDown 
-            ? scrollTravel * 6 
-            : (scrollTravel * 6 + lastCardStickyDistance - 100);
+          const blankCardThreshold = isScrollingDown
+            ? scrollTravel * 6
+            : scrollTravel * 6 + lastCardStickyDistance - 100;
 
           if (S < blankCardThreshold) {
             newActiveIndex = 5;
@@ -146,11 +149,12 @@ const StickyTabs: React.FC<StickyTabsProps> & { Item: React.FC<StickyTabItemProp
   }, [items.length]);
 
   // Calculate total height of StickyTabs dynamically
-  const totalHeight = ((items.length - 1) * scrollTravel) + containerHeight + 88 + lastCardStickyDistance;
+  const totalHeight =
+    (items.length - 1) * scrollTravel + containerHeight + 88 + lastCardStickyDistance;
 
   return (
-    <div 
-      ref={containerRef} 
+    <div
+      ref={containerRef}
       className={clsx("relative overflow-visible", rootClassName)}
       style={{ height: `${totalHeight}px` }}
     >
@@ -158,7 +162,7 @@ const StickyTabs: React.FC<StickyTabsProps> & { Item: React.FC<StickyTabItemProp
       <div
         ref={stickyContainerRef}
         className={clsx(
-          "w-[92%] max-w-4xl mx-auto overflow-visible sticky top-[5.5rem] z-10 pointer-events-none h-[540px] lg:h-[500px]"
+          "w-[92%] max-w-4xl mx-auto overflow-visible sticky top-[5.5rem] z-10 pointer-events-none h-[540px] lg:h-[500px]",
         )}
       >
         {items.map((item, index) => {
@@ -182,7 +186,7 @@ const StickyTabs: React.FC<StickyTabsProps> & { Item: React.FC<StickyTabItemProp
               transition={{ duration: 0.4, ease: [0.16, 1, 0.3, 1] }}
               style={{
                 zIndex: index,
-                position: 'absolute',
+                position: "absolute",
                 top: 0,
                 left: 0,
                 right: 0,
@@ -196,44 +200,29 @@ const StickyTabs: React.FC<StickyTabsProps> & { Item: React.FC<StickyTabItemProp
                     Process
                   </p>
                   <p className="text-sm text-slate-400/90 tracking-wide max-w-xs leading-relaxed font-medium">
-                    A structured workflow designed to build premium digital products with speed and trust.
+                    A structured workflow designed to build premium digital products with speed and
+                    trust.
                   </p>
                 </div>
               ) : (
                 <>
-                  <div
-                    className={clsx(
-                      "flex flex-col",
-                      stickyHeaderContainerClassName
-                    )}
-                  >
+                  <div className={clsx("flex flex-col", stickyHeaderContainerClassName)}>
                     <div className={clsx(headerContentWrapperClassName)}>
                       <div className={clsx(headerContentLayoutClassName)}>
                         <div className="flex items-center justify-between">
-                          <h2 className={clsx(titleClassName)}>
-                            {title}
-                          </h2>
+                          <h2 className={clsx(titleClassName)}>{title}</h2>
                         </div>
                       </div>
                     </div>
                   </div>
 
-                  <div 
-                    className={clsx(
-                      contentLayoutClassName, 
-                      "flex-1"
-                    )}
-                  >
-                    {itemContent}
-                  </div>
+                  <div className={clsx(contentLayoutClassName, "flex-1")}>{itemContent}</div>
                 </>
               )}
             </motion.div>
           );
         })}
       </div>
-
-
     </div>
   );
 };
@@ -241,4 +230,3 @@ const StickyTabs: React.FC<StickyTabsProps> & { Item: React.FC<StickyTabItemProp
 StickyTabs.Item = StickyTabItem;
 
 export default StickyTabs;
-

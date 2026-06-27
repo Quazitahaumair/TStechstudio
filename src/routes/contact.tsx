@@ -47,9 +47,10 @@ function ContactPage() {
   const [errors, setErrors] = useState<Record<string, string>>({});
   const [loading, setLoading] = useState(false);
 
-  const update = (key: keyof FormState) => (
-    e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement | HTMLSelectElement>,
-  ) => setForm((f) => ({ ...f, [key]: e.target.value }));
+  const update =
+    (key: keyof FormState) =>
+    (e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement | HTMLSelectElement>) =>
+      setForm((f) => ({ ...f, [key]: e.target.value }));
 
   const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
@@ -158,9 +159,7 @@ function ContactPage() {
                 onChange={update("name")}
                 placeholder="Quazi Taha"
               />
-              {errors.name && (
-                <p className="mt-1 text-xs text-destructive">{errors.name}</p>
-              )}
+              {errors.name && <p className="mt-1 text-xs text-destructive">{errors.name}</p>}
             </div>
             <div>
               <label className="mb-1.5 block text-sm font-medium">Email</label>
@@ -170,9 +169,7 @@ function ContactPage() {
                 onChange={update("email")}
                 placeholder="Taha@company.com"
               />
-              {errors.email && (
-                <p className="mt-1 text-xs text-destructive">{errors.email}</p>
-              )}
+              {errors.email && <p className="mt-1 text-xs text-destructive">{errors.email}</p>}
             </div>
             <div>
               <label className="mb-1.5 block text-sm font-medium">
@@ -208,9 +205,7 @@ function ContactPage() {
               onChange={update("message")}
               placeholder="Tell us about your project, goals, and timeline…"
             />
-            {errors.message && (
-              <p className="mt-1 text-xs text-destructive">{errors.message}</p>
-            )}
+            {errors.message && <p className="mt-1 text-xs text-destructive">{errors.message}</p>}
           </div>
 
           <button

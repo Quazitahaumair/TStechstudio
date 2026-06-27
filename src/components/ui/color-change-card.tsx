@@ -87,10 +87,7 @@ function ServiceColorCard({ title, description, imgSrc, slug, to }: ServiceColor
 
   if (to) {
     return (
-      <Link
-        to={to}
-        className="block w-full h-full no-underline hover:no-underline"
-      >
+      <Link to={to} className="block w-full h-full no-underline hover:no-underline">
         {cardContent}
       </Link>
     );

@@ -17,20 +17,22 @@ const WordsPullUpSpan = ({ word, i, isInView, showAsterisk, isLast }: WordsPullU
 
   useEffect(() => {
     if (isInView) {
-      controls.start({
-        y: 0,
-        opacity: 1,
-        transition: { duration: 0.6, delay: i * 0.08, ease: [0.16, 1, 0.3, 1] }
-      }).then(() => {
-        controls.start({
-          y: [0, -8, 0],
-          transition: {
-            repeat: Infinity,
-            duration: 4,
-            ease: "easeInOut"
-          }
+      controls
+        .start({
+          y: 0,
+          opacity: 1,
+          transition: { duration: 0.6, delay: i * 0.08, ease: [0.16, 1, 0.3, 1] },
+        })
+        .then(() => {
+          controls.start({
+            y: [0, -8, 0],
+            transition: {
+              repeat: Infinity,
+              duration: 4,
+              ease: "easeInOut",
+            },
+          });
         });
-      });
     }
   }, [isInView, controls, i]);
 
@@ -57,7 +59,12 @@ interface WordsPullUpProps {
   style?: React.CSSProperties;
 }
 
-export const WordsPullUp = ({ text, className = "", showAsterisk = false, style }: WordsPullUpProps) => {
+export const WordsPullUp = ({
+  text,
+  className = "",
+  showAsterisk = false,
+  style,
+}: WordsPullUpProps) => {
   const ref = useRef<HTMLDivElement>(null);
   const isInView = useInView(ref, { once: true });
   const words = text.split(" ");
@@ -93,20 +100,22 @@ const WordsPullUpMultiStyleSpan = ({ w, i, isInView }: WordsPullUpMultiStyleSpan
 
   useEffect(() => {
     if (isInView) {
-      controls.start({
-        y: 0,
-        opacity: 1,
-        transition: { duration: 0.6, delay: i * 0.08, ease: [0.16, 1, 0.3, 1] }
-      }).then(() => {
-        controls.start({
-          y: [0, -8, 0],
-          transition: {
-            repeat: Infinity,
-            duration: 4,
-            ease: "easeInOut"
-          }
+      controls
+        .start({
+          y: 0,
+          opacity: 1,
+          transition: { duration: 0.6, delay: i * 0.08, ease: [0.16, 1, 0.3, 1] },
+        })
+        .then(() => {
+          controls.start({
+            y: [0, -8, 0],
+            transition: {
+              repeat: Infinity,
+              duration: 4,
+              ease: "easeInOut",
+            },
+          });
         });
-      });
     }
   }, [isInView, controls, i]);
 
@@ -134,7 +143,11 @@ interface WordsPullUpMultiStyleProps {
   style?: React.CSSProperties;
 }
 
-export const WordsPullUpMultiStyle = ({ segments, className = "", style }: WordsPullUpMultiStyleProps) => {
+export const WordsPullUpMultiStyle = ({
+  segments,
+  className = "",
+  style,
+}: WordsPullUpMultiStyleProps) => {
   const ref = useRef<HTMLDivElement>(null);
   const isInView = useInView(ref, { once: true });
 
@@ -148,12 +161,7 @@ export const WordsPullUpMultiStyle = ({ segments, className = "", style }: Words
   return (
     <div ref={ref} className={`inline-flex flex-wrap justify-center ${className}`} style={style}>
       {words.map((w, i) => (
-        <WordsPullUpMultiStyleSpan
-          key={i}
-          w={w}
-          i={i}
-          isInView={isInView}
-        />
+        <WordsPullUpMultiStyleSpan key={i} w={w} i={i} isInView={isInView} />
       ))}
     </div>
   );
@@ -164,7 +172,6 @@ const PrismaHero = () => {
   return (
     <section className="h-[100dvh] lg:h-screen w-full">
       <div className="relative h-full w-full overflow-hidden">
-
         {/* Background video */}
         <video
           autoPlay
@@ -185,7 +192,6 @@ const PrismaHero = () => {
         <div className="absolute bottom-0 left-0 right-0 px-4 pb-16 sm:px-6 sm:pb-2 md:px-10">
           <div className="grid grid-cols-12 items-end gap-4">
             <div className="col-span-12 lg:col-span-6 flex flex-col gap-4 pb-0 sm:gap-5 lg:pb-10">
-
               <motion.p
                 initial={{ y: 20, opacity: 0 }}
                 animate={{ y: 0, opacity: 1 }}
@@ -193,7 +199,8 @@ const PrismaHero = () => {
                 className="text-lg text-primary/95 sm:text-xl md:text-2xl font-medium"
                 style={{ lineHeight: 1.5, color: "rgba(225, 224, 204, 0.95)" }}
               >
-                We help startups, local businesses, and growing brands build premium websites, e-commerce platforms, and custom software that produce real business results.
+                We help startups, local businesses, and growing brands build premium websites,
+                e-commerce platforms, and custom software that produce real business results.
               </motion.p>
 
               <motion.div
@@ -212,7 +219,6 @@ const PrismaHero = () => {
                   </span>
                 </Link>
               </motion.div>
-
             </div>
           </div>
         </div>

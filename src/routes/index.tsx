@@ -317,7 +317,8 @@ function ServicesSection() {
           customVariants={revealVariants}
           className="mt-4 text-base leading-7 text-[#6B7280] sm:text-lg"
         >
-          We design and build premium digital experiences that help businesses look sharper, convert better, and grow with confidence.
+          We design and build premium digital experiences that help businesses look sharper, convert
+          better, and grow with confidence.
         </TimelineContent>
       </div>
 
@@ -401,28 +402,64 @@ function WhyChooseSection() {
 
 const stepDetails: Record<string, { deliverables: string[]; image: string }> = {
   "01": {
-    deliverables: ["Project Goals Matrix", "User Journey Flowmaps", "System Requirements Doc", "Competitive Landscape Study"],
-    image: "https://images.unsplash.com/photo-1531538606174-0f90ff5dce83?w=800&auto=format&fit=crop&q=80",
+    deliverables: [
+      "Project Goals Matrix",
+      "User Journey Flowmaps",
+      "System Requirements Doc",
+      "Competitive Landscape Study",
+    ],
+    image:
+      "https://images.unsplash.com/photo-1531538606174-0f90ff5dce83?w=800&auto=format&fit=crop&q=80",
   },
   "02": {
-    deliverables: ["Tech Stack Architecture", "Database Schema Design", "Interactive Sitemap", "Detailed Project Milestone Timeline"],
-    image: "https://images.unsplash.com/photo-1507238691740-187a5b1d37b8?w=800&auto=format&fit=crop&q=80",
+    deliverables: [
+      "Tech Stack Architecture",
+      "Database Schema Design",
+      "Interactive Sitemap",
+      "Detailed Project Milestone Timeline",
+    ],
+    image:
+      "https://images.unsplash.com/photo-1507238691740-187a5b1d37b8?w=800&auto=format&fit=crop&q=80",
   },
   "03": {
-    deliverables: ["High-Fidelity Wireframes", "Interactive Design Prototype", "Tailored Color Palette & Typography", "Component-Based UI Library"],
-    image: "https://images.unsplash.com/photo-1581291518633-83b4ebd1d83e?w=800&auto=format&fit=crop&q=80",
+    deliverables: [
+      "High-Fidelity Wireframes",
+      "Interactive Design Prototype",
+      "Tailored Color Palette & Typography",
+      "Component-Based UI Library",
+    ],
+    image:
+      "https://images.unsplash.com/photo-1581291518633-83b4ebd1d83e?w=800&auto=format&fit=crop&q=80",
   },
   "04": {
-    deliverables: ["Responsive Frontend Layouts", "Optimized Backend APIs", "Standard Database Setup", "Clean Git Repository & Branches"],
-    image: "https://images.unsplash.com/photo-1555066931-4365d14bab8c?w=800&auto=format&fit=crop&q=80",
+    deliverables: [
+      "Responsive Frontend Layouts",
+      "Optimized Backend APIs",
+      "Standard Database Setup",
+      "Clean Git Repository & Branches",
+    ],
+    image:
+      "https://images.unsplash.com/photo-1555066931-4365d14bab8c?w=800&auto=format&fit=crop&q=80",
   },
   "05": {
-    deliverables: ["Cross-Browser Validation", "Lighthouse Performance & SEO Audit", "Mobile UI Responsiveness Tests", "End-to-End User Flow Checks"],
-    image: "https://images.unsplash.com/photo-1517694712202-14dd9538aa97?w=800&auto=format&fit=crop&q=80",
+    deliverables: [
+      "Cross-Browser Validation",
+      "Lighthouse Performance & SEO Audit",
+      "Mobile UI Responsiveness Tests",
+      "End-to-End User Flow Checks",
+    ],
+    image:
+      "https://images.unsplash.com/photo-1517694712202-14dd9538aa97?w=800&auto=format&fit=crop&q=80",
   },
   "06": {
-    deliverables: ["Domain & Hosting Configurations", "Production-Ready Build Assets", "Analytics & Conversion Tracking Setup", "User Training & Handoff Checklist"],
-    image: "https://images.unsplash.com/photo-1460925895917-afdab827c52f?w=800&auto=format&fit=crop&q=80",
+    deliverables: [
+      "Domain & Hosting Configurations",
+      "Production-Ready Build Assets",
+      "Analytics & Conversion Tracking Setup",
+      "User Training & Handoff Checklist",
+    ],
+    image:
+      "https://images.unsplash.com/photo-1460925895917-afdab827c52f?w=800&auto=format&fit=crop&q=80",
   },
 };
 
@@ -453,9 +490,7 @@ function StepContent({
         <h3 className="text-3xl lg:text-2xl font-semibold text-white tracking-tight mb-4">
           {title}
         </h3>
-        <p className="text-slate-400 text-lg lg:text-base leading-relaxed mb-6">
-          {description}
-        </p>
+        <p className="text-slate-400 text-lg lg:text-base leading-relaxed mb-6">{description}</p>
         <div className="border-t border-white/10 pt-6">
           <p className="text-sm lg:text-xs font-semibold text-teal-400 uppercase tracking-wider mb-4">
             Key Deliverables
@@ -490,8 +525,10 @@ function StepContent({
 
 function ProcessSection() {
   return (
-    <section id="process-section-root" className="relative bg-black pt-12 pb-4 border-t border-white/10">
-
+    <section
+      id="process-section-root"
+      className="relative bg-black pt-12 pb-4 border-t border-white/10"
+    >
       <div className="relative z-10 mx-auto max-w-7xl px-4 pb-4">
         <div className="mx-auto max-w-3xl text-center">
           <p className="text-sm font-semibold uppercase tracking-[0.2em] text-teal-400">Process</p>
@@ -534,10 +571,7 @@ function ProcessSection() {
             </StickyTabs.Item>
           );
         })}
-        <StickyTabs.Item
-          title="blank"
-          id="ready-to-build"
-        >
+        <StickyTabs.Item title="blank" id="ready-to-build">
           <div className="w-full h-full" />
         </StickyTabs.Item>
       </StickyTabs>
@@ -613,4 +647,3 @@ function TestimonialsSection() {
     </section>
   );
 }
-

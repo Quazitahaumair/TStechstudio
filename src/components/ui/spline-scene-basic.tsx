@@ -1,17 +1,14 @@
-'use client'
+"use client";
 
 import { SplineScene } from "@/components/ui/splite";
-import { Card } from "@/components/ui/card"
-import { Spotlight } from "@/components/ui/spotlight"
- 
+import { Card } from "@/components/ui/card";
+import { Spotlight } from "@/components/ui/spotlight";
+
 export function SplineSceneBasic() {
   return (
     <Card className="w-full h-[550px] md:h-[650px] bg-black/[0.96] relative overflow-hidden border-y border-white/10 border-x-0 rounded-none shadow-none">
-      <Spotlight
-        className="-top-40 left-0 md:left-60 md:-top-20"
-        fill="white"
-      />
-      
+      <Spotlight className="-top-40 left-0 md:left-60 md:-top-20" fill="white" />
+
       <div className="flex flex-col md:flex-row h-full">
         {/* Left content */}
         <div className="flex-1 p-8 md:p-12 md:pl-16 lg:pl-32 relative z-10 flex flex-col justify-center">
@@ -19,19 +16,19 @@ export function SplineSceneBasic() {
             Interactive 3D
           </h2>
           <p className="mt-6 text-neutral-300 max-w-lg text-lg">
-            Bring your UI to life with beautiful 3D scenes. We create immersive digital experiences 
+            Bring your UI to life with beautiful 3D scenes. We create immersive digital experiences
             that capture attention and deeply enhance your product design.
           </p>
         </div>
 
         {/* Right content */}
         <div className="flex-1 relative min-h-[300px] md:min-h-full">
-          <SplineScene 
+          <SplineScene
             scene="https://prod.spline.design/kZDDjO5HuC9GJUM2/scene.splinecode"
             className="w-full h-full"
           />
         </div>
       </div>
     </Card>
-  )
+  );
 }

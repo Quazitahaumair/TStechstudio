@@ -53,15 +53,13 @@ function PhoneAnim() {
 function DesignAnim() {
   return (
     <div className="relative grid h-full w-full grid-cols-2 grid-rows-2 gap-2 rounded-xl border border-border bg-secondary/40 p-3">
-      {["bg-brand/40", "bg-teal/40", "bg-muted-foreground/20", "bg-brand/25"].map(
-        (c, i) => (
-          <div
-            key={i}
-            className={`rounded-lg ${c}`}
-            style={{ animation: `pulse-soft 3s ease-in-out ${i * 0.3}s infinite` }}
-          />
-        ),
-      )}
+      {["bg-brand/40", "bg-teal/40", "bg-muted-foreground/20", "bg-brand/25"].map((c, i) => (
+        <div
+          key={i}
+          className={`rounded-lg ${c}`}
+          style={{ animation: `pulse-soft 3s ease-in-out ${i * 0.3}s infinite` }}
+        />
+      ))}
       <div className="absolute left-1/2 top-1/2 h-6 w-6 -translate-x-1/2 -translate-y-1/2 rotate-45 animate-float rounded-md border-2 border-teal bg-background" />
     </div>
   );

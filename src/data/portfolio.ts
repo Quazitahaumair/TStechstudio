@@ -16,7 +16,8 @@ export const projects: Project[] = [
     title: "Al-Imam Dates, Honey & Attar Website",
     client: "Halyal Makhtum Sahab",
     category: "Web",
-    summary: "I wanted a professional website for my Al-Imam Dates, Honey & Attar business, and TS Tech Studio exceeded my expectations. They created a beautiful, modern, and user-friendly website that perfectly represents my brand. Highly recommended!",
+    summary:
+      "I wanted a professional website for my Al-Imam Dates, Honey & Attar business, and TS Tech Studio exceeded my expectations. They created a beautiful, modern, and user-friendly website that perfectly represents my brand. Highly recommended!",
     tags: ["E-Commerce", "Web Development", "UI/UX"],
     accent: "from-emerald-500/30 to-teal-500/10",
   },
@@ -25,7 +26,8 @@ export const projects: Project[] = [
     title: "Mukhlis Website Customizations",
     client: "Mohammad Farooq",
     category: "Web",
-    summary: "I wanted several improvements and customizations for my existing Shopify website, and TS Tech Studio handled everything perfectly. The final result was clean, fast, and exactly what I was looking for. Great experience working with them!",
+    summary:
+      "I wanted several improvements and customizations for my existing Shopify website, and TS Tech Studio handled everything perfectly. The final result was clean, fast, and exactly what I was looking for. Great experience working with them!",
     tags: ["Shopify", "Customization", "Speed Optimization"],
     accent: "from-sky-500/30 to-cyan-500/10",
   },
@@ -34,7 +36,8 @@ export const projects: Project[] = [
     title: "Stylein Mens Wear Clothing Website",
     client: "Adam",
     category: "Design",
-    summary: "I wanted a stylish and professional website for my clothing business, Stylein Mens Wear. TS Tech Studio created a beautiful website with an attractive design that perfectly matches my brand. I am very satisfied with their work.",
+    summary:
+      "I wanted a stylish and professional website for my clothing business, Stylein Mens Wear. TS Tech Studio created a beautiful website with an attractive design that perfectly matches my brand. I am very satisfied with their work.",
     tags: ["Web Design", "Responsive Layout", "Branding"],
     accent: "from-rose-500/30 to-pink-500/10",
   },
@@ -131,5 +134,4 @@ export const caseStudies: CaseStudy[] = [
   },
 ];
 
-export const getCaseStudy = (slug: string) =>
-  caseStudies.find((c) => c.slug === slug);
+export const getCaseStudy = (slug: string) => caseStudies.find((c) => c.slug === slug);

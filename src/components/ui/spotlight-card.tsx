@@ -46,7 +46,7 @@ const SpotlightCard = ({
       onMouseLeave={handleMouseLeave}
       className={cn(
         "relative overflow-hidden rounded-3xl border border-neutral-800 bg-neutral-900 p-8",
-        className
+        className,
       )}
     >
       {/* Spotlight overlay */}

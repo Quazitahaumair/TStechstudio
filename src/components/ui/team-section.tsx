@@ -25,8 +25,10 @@ function createCardTexture(
   ctx.imageSmoothingEnabled = true;
   ctx.imageSmoothingQuality = "high";
 
-  const fontStack = '"Inter", system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", sans-serif';
-  const displayFontStack = '"Sora", system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", sans-serif';
+  const fontStack =
+    '"Inter", system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", sans-serif';
+  const displayFontStack =
+    '"Sora", system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", sans-serif';
 
   if (isFront) {
     // Front Face — Full Bleed Avatar with name overlay at bottom
@@ -84,7 +86,6 @@ function createCardTexture(
 
     ctx.fillStyle = accentColor;
     ctx.fillRect(30 * S, 30 * S, 1140 * S, 12 * S);
-
 
     // Centered QR Code on back face (no logo text)
     const qrSize = 340;
@@ -157,10 +158,7 @@ function MemberCard({ member, index }: { member: any; index: number }) {
   }, []);
 
   return (
-    <div
-      ref={containerRef}
-      className="flex flex-col items-center w-full relative"
-    >
+    <div ref={containerRef} className="flex flex-col items-center w-full relative">
       {/* Lanyard container — restricted max-width to ensure alignment in grid columns */}
       <motion.div
         className="relative w-full max-w-[450px] h-[600px] flex justify-center items-center z-20"
@@ -177,18 +175,27 @@ function MemberCard({ member, index }: { member: any; index: number }) {
               className="w-full h-full object-cover transition-transform duration-500 group-hover/csscard:scale-105"
             />
             <div className="absolute inset-x-0 bottom-0 bg-gradient-to-t from-black/80 via-black/40 to-transparent p-6 pt-20 text-center">
-              <h4 className="text-xl font-bold text-white tracking-wide uppercase">{member.name}</h4>
-              <p className="text-xs text-[#2DD4BF] font-semibold tracking-wider mt-1">{member.role}</p>
+              <h4 className="text-xl font-bold text-white tracking-wide uppercase">
+                {member.name}
+              </h4>
+              <p className="text-xs text-[#2DD4BF] font-semibold tracking-wider mt-1">
+                {member.role}
+              </p>
             </div>
-            <div className="absolute top-0 left-0 right-0 h-1.5" style={{ backgroundColor: member.color === 'indigo' ? '#4f46e5' : '#059669' }} />
+            <div
+              className="absolute top-0 left-0 right-0 h-1.5"
+              style={{ backgroundColor: member.color === "indigo" ? "#4f46e5" : "#059669" }}
+            />
           </div>
         ) : member.textures ? (
-          <Suspense fallback={
-            <div className="w-[300px] h-[450px] bg-slate-800/10 backdrop-blur-md border border-slate-700/20 rounded-2xl flex flex-col justify-center items-center gap-4 animate-pulse">
-              <Layers className="w-12 h-12 text-slate-400/50 animate-bounce" />
-              <span className="text-sm font-medium text-slate-500">Loading 3D Scene...</span>
-            </div>
-          }>
+          <Suspense
+            fallback={
+              <div className="w-[300px] h-[450px] bg-slate-800/10 backdrop-blur-md border border-slate-700/20 rounded-2xl flex flex-col justify-center items-center gap-4 animate-pulse">
+                <Layers className="w-12 h-12 text-slate-400/50 animate-bounce" />
+                <span className="text-sm font-medium text-slate-500">Loading 3D Scene...</span>
+              </div>
+            }
+          >
             <Lanyard
               position={[0, 0, 13.5]}
               gravity={[0, -40, 0]}
@@ -216,7 +223,9 @@ function MemberCard({ member, index }: { member: any; index: number }) {
       {/* Profile details — clean, centered, borderless text lines sliding down on scroll */}
       <motion.div
         initial={{ y: -60, opacity: 0, scaleY: 0.92 }}
-        animate={showDetails ? { y: 0, opacity: 1, scaleY: 1 } : { y: -60, opacity: 0, scaleY: 0.92 }}
+        animate={
+          showDetails ? { y: 0, opacity: 1, scaleY: 1 } : { y: -60, opacity: 0, scaleY: 0.92 }
+        }
         transition={{ duration: 0.85, ease: [0.16, 1, 0.3, 1] }}
         style={{ transformOrigin: "top" }}
         className="w-full max-w-[420px] text-center flex flex-col items-center select-none z-10 relative -mt-20"
@@ -225,7 +234,9 @@ function MemberCard({ member, index }: { member: any; index: number }) {
           <span className={`p-1.5 rounded-lg ${member.accentBg} mb-1 shadow-sm`}>
             {member.icon}
           </span>
-          <h3 className="text-2xl font-bold text-slate-800 tracking-tight leading-tight">{member.name}</h3>
+          <h3 className="text-2xl font-bold text-slate-800 tracking-tight leading-tight">
+            {member.name}
+          </h3>
           <p className="text-sm font-semibold text-[#0D9488]">{member.role}</p>
         </div>
 
@@ -235,7 +246,9 @@ function MemberCard({ member, index }: { member: any; index: number }) {
 
         {/* Skill badges */}
         <div className="mb-4 flex flex-col items-center">
-          <p className="text-[10px] font-bold text-slate-400 uppercase tracking-widest mb-2">Core Competencies</p>
+          <p className="text-[10px] font-bold text-slate-400 uppercase tracking-widest mb-2">
+            Core Competencies
+          </p>
           <div className="flex flex-wrap justify-center gap-1.5 px-4 max-w-[380px]">
             {member.skills.map((skill: string) => (
               <span
@@ -258,7 +271,9 @@ function MemberCard({ member, index }: { member: any; index: number }) {
 
 export default function TeamSection() {
   const [tahaTextures, setTahaTextures] = useState<{ front: string; back: string } | null>(null);
-  const [sharikhTextures, setSharikhTextures] = useState<{ front: string; back: string } | null>(null);
+  const [sharikhTextures, setSharikhTextures] = useState<{ front: string; back: string } | null>(
+    null,
+  );
 
   useEffect(() => {
     let active = true;
@@ -313,7 +328,14 @@ export default function TeamSection() {
     {
       role: "Full Stack Developer",
       desc: "Full Stack developer with 2+ years of Industry experience, building robust architectures and responsive interfaces.",
-      skills: ["Angular / React / Next.js", "Node.js / Express", "Javascript / TypeScript", "Mongodb / PostgreSQL", "Angular Material / Tailwind CSS", "Three.js / Canvas",],
+      skills: [
+        "Angular / React / Next.js",
+        "Node.js / Express",
+        "Javascript / TypeScript",
+        "Mongodb / PostgreSQL",
+        "Angular Material / Tailwind CSS",
+        "Three.js / Canvas",
+      ],
       textures: tahaTextures,
       icon: <Code2 className="w-5 h-5 text-emerald-400" />,
       color: "emerald",
@@ -324,7 +346,14 @@ export default function TeamSection() {
     {
       role: "Software Tester",
       desc: "Software Tester with 2+ years of industry experience, ensuring application quality, performance, and bulletproof automation.",
-      skills: ["QA Automation", "Cypress / Playwright", "Selenium", "API Testing", "CI/CD Pipelines", "Performance Testing"],
+      skills: [
+        "QA Automation",
+        "Cypress / Playwright",
+        "Selenium",
+        "API Testing",
+        "CI/CD Pipelines",
+        "Performance Testing",
+      ],
       textures: sharikhTextures,
       icon: <Bug className="w-5 h-5 text-indigo-400" />,
       color: "indigo",
@@ -376,8 +405,8 @@ export default function TeamSection() {
             viewport={{ once: true }}
             transition={{ duration: 0.6, delay: 0.3 }}
           >
-            Hover and drag the 3D identity badges to see them swing in real-time physics.
-            We build next-generation web applications with precision and testing rigour.
+            Hover and drag the 3D identity badges to see them swing in real-time physics. We build
+            next-generation web applications with precision and testing rigour.
           </motion.p>
         </div>
 

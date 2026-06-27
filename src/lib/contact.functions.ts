@@ -36,11 +36,7 @@ export const contactSchema = z.object({
   email: z.string().trim().email("Enter a valid email").max(255),
   company: z.string().trim().max(120).optional().or(z.literal("")),
   service: z.string().trim().max(80).optional().or(z.literal("")),
-  message: z
-    .string()
-    .trim()
-    .min(10, "Tell us a bit more (10+ characters)")
-    .max(2000),
+  message: z.string().trim().min(10, "Tell us a bit more (10+ characters)").max(2000),
 });
 
 export type ContactInput = z.infer<typeof contactSchema>;
@@ -74,8 +70,13 @@ export const submitContact = createServerFn({ method: "POST" })
     const envs = typeof process !== "undefined" ? process.env : {};
     const metaEnvs = (import.meta as any).env || {};
 
-    const resendKey = envs.RESEND_API_KEY || metaEnvs.VITE_RESEND_API_KEY || metaEnvs.RESEND_API_KEY;
-    const notifyTo = envs.CONTACT_NOTIFY_EMAIL || metaEnvs.VITE_CONTACT_NOTIFY_EMAIL || metaEnvs.CONTACT_NOTIFY_EMAIL || "tstechstudio11@gmail.com";
+    const resendKey =
+      envs.RESEND_API_KEY || metaEnvs.VITE_RESEND_API_KEY || metaEnvs.RESEND_API_KEY;
+    const notifyTo =
+      envs.CONTACT_NOTIFY_EMAIL ||
+      metaEnvs.VITE_CONTACT_NOTIFY_EMAIL ||
+      metaEnvs.CONTACT_NOTIFY_EMAIL ||
+      "tstechstudio11@gmail.com";
 
     const html = `
       <h2>New enquiry — TS Tech Studio</h2>
@@ -92,7 +93,7 @@ export const submitContact = createServerFn({ method: "POST" })
         const url = "https://api.resend.com/emails";
         const headers: Record<string, string> = {
           "Content-Type": "application/json",
-          "Authorization": `Bearer ${resendKey}`,
+          Authorization: `Bearer ${resendKey}`,
         };
 
         const res = await fetch(url, {
@@ -121,7 +122,11 @@ export const submitContact = createServerFn({ method: "POST" })
 
     // No email provider configured yet — record the lead in server logs.
     console.log("New contact submission (no API key configured):", JSON.stringify(data));
-    return { ok: true, emailed: false, error: "No RESEND_API_KEY configured in environment variables." };
+    return {
+      ok: true,
+      emailed: false,
+      error: "No RESEND_API_KEY configured in environment variables.",
+    };
   });
 
 function escapeHtml(str: string) {

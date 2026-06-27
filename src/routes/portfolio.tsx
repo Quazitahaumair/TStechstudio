@@ -29,9 +29,12 @@ export const Route = createFileRoute("/portfolio")({
 type Filter = ServiceCategory | "All";
 
 const avatars: Record<string, string> = {
-  "al-imam-dates": "https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?auto=format&fit=crop&q=80&w=150&h=150",
-  "mukhlis-shopify": "https://images.unsplash.com/photo-1500648767791-00dcc994a43e?auto=format&fit=crop&q=80&w=150&h=150",
-  "stylein-mens-wear": "https://images.unsplash.com/photo-1494790108377-be9c29b29330?auto=format&fit=crop&q=80&w=150&h=150",
+  "al-imam-dates":
+    "https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?auto=format&fit=crop&q=80&w=150&h=150",
+  "mukhlis-shopify":
+    "https://images.unsplash.com/photo-1500648767791-00dcc994a43e?auto=format&fit=crop&q=80&w=150&h=150",
+  "stylein-mens-wear":
+    "https://images.unsplash.com/photo-1494790108377-be9c29b29330?auto=format&fit=crop&q=80&w=150&h=150",
 };
 
 // Construct the columns dynamically based on the filtered list of items
@@ -103,7 +106,7 @@ const ProjectsColumn = (props: {
                   <p className="text-slate-600 leading-relaxed font-normal m-0 text-sm">
                     "{summary}"
                   </p>
-                  
+
                   <div className="mt-4 flex flex-wrap gap-1">
                     {tags.map((t) => (
                       <span
@@ -139,8 +142,7 @@ function PortfolioPage() {
   const [filter, setFilter] = useState<Filter>("All");
   const [showRest, setShowRest] = useState(false);
   const filters: Filter[] = ["All", ...SERVICE_CATEGORIES];
-  const visible =
-    filter === "All" ? projects : projects.filter((p) => p.category === filter);
+  const visible = filter === "All" ? projects : projects.filter((p) => p.category === filter);
 
   const [col1, col2, col3] = getColumns(visible);
 
@@ -192,15 +194,20 @@ function PortfolioPage() {
           transition={{ duration: 0.8, ease: "easeOut" }}
           className={cn(!showRest && "pointer-events-none")}
         >
-        
-
           <div
             className="flex justify-center gap-6 mt-12 [mask-image:linear-gradient(to_bottom,transparent,black_12%,black_88%,transparent)] max-h-[640px] overflow-hidden"
             role="region"
             aria-label="Scrolling Client Testimonials"
           >
             {col1.length > 0 && <ProjectsColumn projects={col1} duration={col1.length * 9} />}
-            {col2.length > 0 && <ProjectsColumn projects={col2} className="hidden md:block" duration={col2.length * 11} reverse />}
+            {col2.length > 0 && (
+              <ProjectsColumn
+                projects={col2}
+                className="hidden md:block"
+                duration={col2.length * 11}
+                reverse
+              />
+            )}
           </div>
 
           <div className="mt-16 text-center">

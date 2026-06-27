@@ -97,19 +97,24 @@ function ServiceDetail() {
       description: service.description,
       align: "left" as const,
       actions: [
-        { label: "Request this service", variant: "primary" as const, onClick: () => window.location.href = '/contact' },
-      ]
+        {
+          label: "Request this service",
+          variant: "primary" as const,
+          onClick: () => (window.location.href = "/contact"),
+        },
+      ],
     },
     {
       id: "features-1",
       badge: "What's included",
       title: "Core Services",
-      description: "From marketing sites to complex custom web applications, we provide end-to-end development.",
+      description:
+        "From marketing sites to complex custom web applications, we provide end-to-end development.",
       align: "center" as const,
       features: service.features.slice(0, 3).map((f: string) => ({
         title: f,
-        description: `Custom tailored ${f.toLowerCase()} to elevate your digital presence.`
-      }))
+        description: `Custom tailored ${f.toLowerCase()} to elevate your digital presence.`,
+      })),
     },
     {
       id: "features-2",
@@ -120,21 +125,30 @@ function ServiceDetail() {
       align: "left" as const,
       features: service.features.slice(3).map((f: string) => ({
         title: f,
-        description: `High-performance ${f.toLowerCase()} designed for maximum conversion.`
-      }))
+        description: `High-performance ${f.toLowerCase()} designed for maximum conversion.`,
+      })),
     },
     {
       id: "cta",
       badge: "Get Started",
       title: "Ready to build?",
       subtitle: "Let's create together",
-      description: "Contact us today to discuss your next website project and see how we can help you achieve your goals.",
+      description:
+        "Contact us today to discuss your next website project and see how we can help you achieve your goals.",
       align: "center" as const,
       actions: [
-        { label: "Request this service", variant: "primary" as const, onClick: () => window.location.href = '/contact' },
-        { label: "View Portfolio", variant: "secondary" as const, onClick: () => window.location.href = '/services' }
-      ]
-    }
+        {
+          label: "Request this service",
+          variant: "primary" as const,
+          onClick: () => (window.location.href = "/contact"),
+        },
+        {
+          label: "View Portfolio",
+          variant: "secondary" as const,
+          onClick: () => (window.location.href = "/services"),
+        },
+      ],
+    },
   ];
 
   return (
@@ -238,26 +252,31 @@ function ServiceDetail() {
         </div>
       )}
 
-      {(!isMobileApp && !isWebsiteDev && !isUiUxDesign && !isDigitalMarketing && !isBrandingSolutions && !isCustomWebApps) && (
-        <div className="mx-auto max-w-6xl px-4 py-16">
-          <div className="mt-16">
-            <h2 className="text-2xl font-bold">What's included</h2>
-            <ul className="mt-6 grid gap-3 sm:grid-cols-2">
-              {service.features.map((f: string) => (
-                <li
-                  key={f}
-                  className="flex items-center gap-3 rounded-xl border border-border bg-card/60 px-4 py-3"
-                >
-                  <span className="grid size-6 shrink-0 place-items-center rounded-full bg-gradient-brand text-brand-foreground">
-                    <Check className="size-3.5" />
-                  </span>
-                  {f}
-                </li>
-              ))}
-            </ul>
+      {!isMobileApp &&
+        !isWebsiteDev &&
+        !isUiUxDesign &&
+        !isDigitalMarketing &&
+        !isBrandingSolutions &&
+        !isCustomWebApps && (
+          <div className="mx-auto max-w-6xl px-4 py-16">
+            <div className="mt-16">
+              <h2 className="text-2xl font-bold">What's included</h2>
+              <ul className="mt-6 grid gap-3 sm:grid-cols-2">
+                {service.features.map((f: string) => (
+                  <li
+                    key={f}
+                    className="flex items-center gap-3 rounded-xl border border-border bg-card/60 px-4 py-3"
+                  >
+                    <span className="grid size-6 shrink-0 place-items-center rounded-full bg-gradient-brand text-brand-foreground">
+                      <Check className="size-3.5" />
+                    </span>
+                    {f}
+                  </li>
+                ))}
+              </ul>
+            </div>
           </div>
-        </div>
-      )}
+        )}
     </div>
   );
 }

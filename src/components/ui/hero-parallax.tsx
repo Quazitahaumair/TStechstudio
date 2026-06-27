@@ -1,12 +1,6 @@
 "use client";
 import React from "react";
-import {
-  motion,
-  useScroll,
-  useTransform,
-  useSpring,
-  MotionValue,
-} from "framer-motion";
+import { motion, useScroll, useTransform, useSpring, MotionValue } from "framer-motion";
 
 export const HeroParallax = ({
   products,
@@ -32,30 +26,15 @@ export const HeroParallax = ({
 
   const springConfig = { stiffness: 100, damping: 30, mass: 1 };
 
-  const translateX = useSpring(
-    useTransform(scrollYProgress, [0, 1], [0, 1000]),
-    springConfig
-  );
+  const translateX = useSpring(useTransform(scrollYProgress, [0, 1], [0, 1000]), springConfig);
   const translateXReverse = useSpring(
     useTransform(scrollYProgress, [0, 1], [0, -1000]),
-    springConfig
+    springConfig,
   );
-  const rotateX = useSpring(
-    useTransform(scrollYProgress, [0, 0.2], [15, 0]),
-    springConfig
-  );
-  const opacity = useSpring(
-    useTransform(scrollYProgress, [0, 0.2], [0.2, 1]),
-    springConfig
-  );
-  const rotateZ = useSpring(
-    useTransform(scrollYProgress, [0, 0.2], [20, 0]),
-    springConfig
-  );
-  const translateY = useSpring(
-    useTransform(scrollYProgress, [0, 0.2], [-700, 200]),
-    springConfig
-  );
+  const rotateX = useSpring(useTransform(scrollYProgress, [0, 0.2], [15, 0]), springConfig);
+  const opacity = useSpring(useTransform(scrollYProgress, [0, 0.2], [0.2, 1]), springConfig);
+  const rotateZ = useSpring(useTransform(scrollYProgress, [0, 0.2], [20, 0]), springConfig);
+  const translateY = useSpring(useTransform(scrollYProgress, [0, 0.2], [-700, 200]), springConfig);
   return (
     <div
       ref={ref}
@@ -73,20 +52,12 @@ export const HeroParallax = ({
       >
         <motion.div className="flex flex-row-reverse space-x-reverse space-x-20 mb-20 will-change-transform">
           {firstRow.map((product) => (
-            <ProductCard
-              product={product}
-              translate={translateX}
-              key={product.title}
-            />
+            <ProductCard product={product} translate={translateX} key={product.title} />
           ))}
         </motion.div>
         <motion.div className="flex flex-row mb-20 space-x-20 will-change-transform">
           {secondRow.map((product) => (
-            <ProductCard
-              product={product}
-              translate={translateXReverse}
-              key={product.title}
-            />
+            <ProductCard product={product} translate={translateXReverse} key={product.title} />
           ))}
         </motion.div>
       </motion.div>
@@ -94,13 +65,7 @@ export const HeroParallax = ({
   );
 };
 
-export const Header = ({
-  title,
-  description,
-}: {
-  title?: string;
-  description?: string;
-}) => {
+export const Header = ({ title, description }: { title?: string; description?: string }) => {
   return (
     <div className="max-w-7xl relative mx-auto py-20 md:py-40 px-4 w-full left-0 top-0">
       <h1 className="text-4xl md:text-7xl font-bold text-white leading-tight">

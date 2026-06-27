@@ -56,7 +56,7 @@ export default function IntegrationHero() {
           >
             Engineered with Modern Technologies
           </motion.h1>
-          
+
           <motion.p
             initial={{ opacity: 0.5, y: 100 }}
             whileInView={{ opacity: 1, y: 0 }}
@@ -67,9 +67,10 @@ export default function IntegrationHero() {
             }}
             className="mt-4 text-base sm:text-lg text-slate-300 max-w-xl mx-auto leading-relaxed text-center px-4 w-full"
           >
-            We leverage industry-leading frameworks, runtimes, and cloud infrastructure to deliver high-performance digital solutions.
+            We leverage industry-leading frameworks, runtimes, and cloud infrastructure to deliver
+            high-performance digital solutions.
           </motion.p>
-          
+
           <motion.div
             initial={{ opacity: 0.5, y: 100 }}
             whileInView={{ opacity: 1, y: 0 }}
@@ -123,7 +124,9 @@ export default function IntegrationHero() {
         <div className="absolute right-0 top-0 h-full w-24 sm:w-48 bg-gradient-to-l from-slate-950 to-transparent pointer-events-none z-10" />
       </div>
 
-      <style dangerouslySetInnerHTML={{ __html: `
+      <style
+        dangerouslySetInnerHTML={{
+          __html: `
         @keyframes scroll-left {
           0% { transform: translateX(0); }
           100% { transform: translateX(-50%); }
@@ -138,7 +141,9 @@ export default function IntegrationHero() {
         .animate-scroll-right {
           animation: scroll-right 35s linear infinite;
         }
-      `}} />
+      `,
+        }}
+      />
     </div>
   );
 }

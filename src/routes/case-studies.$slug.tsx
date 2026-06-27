@@ -79,9 +79,7 @@ function CaseStudyDetail() {
         )}
       >
         <div className="absolute inset-0 bg-grid opacity-30" />
-        <span className="relative font-display text-4xl font-bold opacity-80">
-          {study.client}
-        </span>
+        <span className="relative font-display text-4xl font-bold opacity-80">{study.client}</span>
       </div>
 
       <div className="mt-10 grid grid-cols-2 gap-4 sm:grid-cols-3">
@@ -131,9 +129,7 @@ function CaseStudyDetail() {
 
       <blockquote className="mt-12 rounded-3xl border border-border bg-card/60 p-8 shadow-card">
         <p className="text-lg font-medium">"{study.quote.text}"</p>
-        <footer className="mt-3 text-sm text-muted-foreground">
-          — {study.quote.author}
-        </footer>
+        <footer className="mt-3 text-sm text-muted-foreground">— {study.quote.author}</footer>
       </blockquote>
 
       <div className="mt-12 rounded-3xl border border-border bg-card/60 p-8 text-center shadow-glow">

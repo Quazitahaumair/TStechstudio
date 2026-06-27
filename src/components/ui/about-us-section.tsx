@@ -17,14 +17,7 @@ import {
   CheckCircle,
   Star,
 } from "lucide-react";
-import {
-  motion,
-  useScroll,
-  useTransform,
-  useInView,
-  useSpring,
-  Variants,
-} from "framer-motion";
+import { motion, useScroll, useTransform, useInView, useSpring, Variants } from "framer-motion";
 import { Link } from "@tanstack/react-router";
 
 export default function AboutUsSection() {
@@ -179,9 +172,9 @@ export default function AboutUsSection() {
           className="text-center max-w-2xl mx-auto mb-16 text-[#111827]/70 leading-relaxed"
           variants={itemVariants}
         >
-          We are a passionate team of developers and designers dedicated to building
-          modern, results-driven digital products. With attention to detail and a
-          commitment to quality, we help businesses grow with confidence online.
+          We are a passionate team of developers and designers dedicated to building modern,
+          results-driven digital products. With attention to detail and a commitment to quality, we
+          help businesses grow with confidence online.
         </motion.p>
 
         {/* Services Grid */}
@@ -320,9 +313,7 @@ export default function AboutUsSection() {
         >
           <div className="flex-1">
             <h3 className="text-2xl font-medium mb-2">Ready to build something great?</h3>
-            <p className="text-white/70">
-              Let's turn your idea into a premium digital product.
-            </p>
+            <p className="text-white/70">Let's turn your idea into a premium digital product.</p>
           </div>
           <Link to="/contact">
             <motion.span
@@ -350,7 +341,15 @@ interface ServiceItemProps {
   direction: "left" | "right";
 }
 
-function ServiceItem({ icon, secondaryIcon, title, description, variants, delay, direction }: ServiceItemProps) {
+function ServiceItem({
+  icon,
+  secondaryIcon,
+  title,
+  description,
+  variants,
+  delay,
+  direction,
+}: ServiceItemProps) {
   return (
     <motion.div
       className="flex flex-col group"

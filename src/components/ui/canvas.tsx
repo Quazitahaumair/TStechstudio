@@ -5,7 +5,9 @@ class Oscillator {
   amplitude: number;
   valueVal: number;
 
-  constructor(options: { phase?: number; offset?: number; frequency?: number; amplitude?: number } = {}) {
+  constructor(
+    options: { phase?: number; offset?: number; frequency?: number; amplitude?: number } = {},
+  ) {
     this.phase = options.phase || 0;
     this.offset = options.offset || 0;
     this.frequency = options.frequency || 0.001;
@@ -113,7 +115,13 @@ interface CanvasConfig {
   tension: number;
 }
 
-let ctx: (CanvasRenderingContext2D & { running?: boolean; frame?: number; canvasElement?: HTMLCanvasElement }) | null = null;
+let ctx:
+  | (CanvasRenderingContext2D & {
+      running?: boolean;
+      frame?: number;
+      canvasElement?: HTMLCanvasElement;
+    })
+  | null = null;
 let f: Oscillator;
 const pos = { x: 0, y: 0 };
 let lines: LineItem[] = [];
@@ -134,14 +142,14 @@ function onMousemove(e: MouseEvent | TouchEvent) {
       lines.push(new LineItem({ spring: 0.45 + (i / E.trails) * 0.025 }));
     }
   }
-  
+
   document.removeEventListener("mousemove", onMousemove);
   document.removeEventListener("touchstart", onMousemove);
-  
+
   document.addEventListener("mousemove", handleMouseMove);
   document.addEventListener("touchmove", handleMouseMove);
   document.addEventListener("touchstart", handleTouchStart);
-  
+
   handleMouseMove(e);
   o();
   render();
@@ -178,12 +186,17 @@ function handleTouchStart(e: TouchEvent) {
 function render() {
   if (ctx && ctx.running) {
     ctx.globalCompositeOperation = "source-over";
-    ctx.clearRect(0, 0, ctx.canvasElement?.width || window.innerWidth, ctx.canvasElement?.height || window.innerHeight);
+    ctx.clearRect(
+      0,
+      0,
+      ctx.canvasElement?.width || window.innerWidth,
+      ctx.canvasElement?.height || window.innerHeight,
+    );
     ctx.globalCompositeOperation = "lighter";
-    
+
     ctx.strokeStyle = "hsla(" + Math.round(f.update()) + ",100%,50%,0.025)";
     ctx.lineWidth = 10;
-    
+
     for (let t = 0; t < E.trails; t++) {
       const line = lines[t];
       if (line) {
@@ -191,7 +204,7 @@ function render() {
         line.draw(ctx);
       }
     }
-    
+
     if (ctx.frame !== undefined) ctx.frame++;
     window.requestAnimationFrame(render);
   }
@@ -208,7 +221,7 @@ function resizeCanvas() {
 export const renderCanvas = function () {
   const canvas = document.getElementById("canvas") as HTMLCanvasElement;
   if (!canvas) return;
-  
+
   const context = canvas.getContext("2d");
   if (!context) return;
 
@@ -218,7 +231,7 @@ export const renderCanvas = function () {
     ctx.frame = 1;
     ctx.canvasElement = canvas;
   }
-  
+
   f = new Oscillator({
     phase: Math.random() * 2 * Math.PI,
     amplitude: 85,
@@ -229,19 +242,19 @@ export const renderCanvas = function () {
   // Initialize mouse position to center
   pos.x = window.innerWidth / 2;
   pos.y = window.innerHeight / 2;
-  
+
   document.addEventListener("mousemove", onMousemove);
   document.addEventListener("touchstart", onMousemove);
   document.body.addEventListener("orientationchange", resizeCanvas);
   window.addEventListener("resize", resizeCanvas);
-  
+
   const handleFocus = () => {
     if (ctx && !ctx.running) {
       ctx.running = true;
       render();
     }
   };
-  
+
   const handleBlur = () => {
     if (ctx) {
       ctx.running = true;
@@ -250,7 +263,7 @@ export const renderCanvas = function () {
 
   window.addEventListener("focus", handleFocus);
   window.addEventListener("blur", handleBlur);
-  
+
   resizeCanvas();
 };
 
