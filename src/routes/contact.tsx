@@ -138,7 +138,7 @@ function ContactPage() {
                   <span className="block text-muted-foreground">Phone / WhatsApp</span>
                   <div className="flex flex-col gap-1">
                     <a href="tel:+917875992292" className="hover:text-brand transition-colors">
-                      +91 7875992292
+                      +91 7875992293
                     </a>
                     <a href="tel:+919623710631" className="hover:text-brand transition-colors">
                       +91 9623710631

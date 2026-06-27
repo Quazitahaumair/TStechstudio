@@ -259,7 +259,7 @@ function MemberCard({ member, index }: { member: any; index: number }) {
           <h3 className="text-2xl sm:text-3xl font-extrabold text-slate-900 tracking-tight leading-tight">
             {member.name}
           </h3>
-          <p className="text-sm font-semibold text-[#0D9488]">{member.role}</p>
+          <p className="text-sm font-semibold text-[#0D9488] hidden md:block">{member.role}</p>
         </div>
 
         <p className="text-slate-600 text-sm leading-relaxed mb-4 px-4 max-w-[380px]">
