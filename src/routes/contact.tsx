@@ -2,7 +2,7 @@ import { useState } from "react";
 import { createFileRoute } from "@tanstack/react-router";
 import { useServerFn } from "@tanstack/react-start";
 import { toast } from "sonner";
-import { Loader2, Mail, MapPin, Send } from "lucide-react";
+import { Loader2, Mail, MapPin, Send, Phone } from "lucide-react";
 import { z } from "zod";
 import { submitContact, contactSchema } from "@/lib/contact.functions";
 import { services } from "@/data/services";
@@ -123,7 +123,20 @@ function ContactPage() {
                 </span>
                 <span>
                   <span className="block text-muted-foreground">Email</span>
-                  tstechstudio11@gmail.com
+                  <a href="mailto:tstechstudio11@gmail.com" className="hover:text-brand transition-colors">
+                    tstechstudio11@gmail.com
+                  </a>
+                </span>
+              </li>
+              <li className="flex items-center gap-3">
+                <span className="grid size-10 place-items-center rounded-xl bg-gradient-brand text-brand-foreground">
+                  <Phone className="size-4" />
+                </span>
+                <span>
+                  <span className="block text-muted-foreground">Phone / WhatsApp</span>
+                  <a href="tel:+918080080800" className="hover:text-brand transition-colors">
+                    +91 80800 80800
+                  </a>
                 </span>
               </li>
               <li className="flex items-center gap-3">
@@ -132,7 +145,7 @@ function ContactPage() {
                 </span>
                 <span>
                   <span className="block text-muted-foreground">Working worldwide</span>
-                  Kinwat Dist. Nanded , Maharashtra .
+                  Kinwat Dist. Nanded, Maharashtra.
                 </span>
               </li>
             </ul>
