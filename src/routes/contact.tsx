@@ -100,7 +100,7 @@ function ContactPage() {
     "w-full rounded-lg border border-border bg-secondary/40 px-4 py-2.5 text-sm outline-none transition-colors focus:border-brand focus:ring-1 focus:ring-ring";
 
   return (
-    <div className="mx-auto max-w-6xl px-4 py-16">
+    <div className="mx-auto max-w-6xl px-4 pt-28 pb-16 sm:pt-36 md:pt-44">
       <header className="text-center">
         <p className="text-sm font-medium text-teal">Get In Touch</p>
         <h1 className="mt-2 text-4xl font-bold sm:text-5xl">Let's build together</h1>
