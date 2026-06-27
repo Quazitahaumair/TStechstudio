@@ -9,6 +9,7 @@ import {
 } from "@tanstack/react-router";
 import { useEffect, type ReactNode } from "react";
 
+import { Analytics } from "@vercel/analytics/react";
 import appCss from "../styles.css?url";
 import { reportTstechstudioError } from "../lib/tstechstudio-error-reporting";
 import { SiteHeader } from "../components/site-header";
@@ -144,6 +145,7 @@ function RootShell({ children }: { children: ReactNode }) {
       </head>
       <body suppressHydrationWarning style={{ background: "#FFFBF5" }}>
         {children}
+        <Analytics />
         <Scripts />
       </body>
     </html>
